@@ -17,7 +17,7 @@ export class AppController {
   }
 
   //! CASE 2 : API Identifier is not provided
-  //  In this case, Guard will allow the access to API
+  //  In this case, Guard will deny the access to API
   @Get('/2')
   // @UseGuards(APIGuard)
   example2(): string {

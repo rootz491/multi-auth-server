@@ -5,7 +5,7 @@ import {
   SetMetadata,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import apiKeys from 'src/auth/api-keys';
+import apiKeys from './api-keys';
 
 @Injectable()
 export class APIGuard implements CanActivate {
@@ -30,9 +30,9 @@ export class APIGuard implements CanActivate {
 
     //  If API Identifier is incorrect, then deny the access to API
     if (!requestPair) {
-      console.log(
-        `WARNING: API Identifier "${requiredApiIdentifier}" is incorrect`,
-      );
+      // console.log(
+      //   `WARNING: API Identifier "${requiredApiIdentifier}" is incorrect`,
+      // );
       return false;
     }
 
@@ -43,15 +43,15 @@ export class APIGuard implements CanActivate {
 
     //  If API Key is incorrect, then deny the access to API
     if (requiredApiKey !== inputApiKey) {
-      console.log(
-        `WARNING: API Key "${inputApiKey}" for API Identifier "${requiredApiIdentifier}" is incorrect`,
-      );
+      // console.log(
+      //   `WARNING: API Key "${inputApiKey}" for API Identifier "${requiredApiIdentifier}" is incorrect`,
+      // );
       return false;
     }
 
-    console.log(
-      `SUCCESS: API Key "${inputApiKey}" for API Identifier "${requiredApiIdentifier}" in API Header "${requiredApiHeader}" is correct`,
-    );
+    // console.log(
+    //   `SUCCESS: API Key "${inputApiKey}" for API Identifier "${requiredApiIdentifier}" in API Header "${requiredApiHeader}" is correct`,
+    // );
     return true;
   }
 }
